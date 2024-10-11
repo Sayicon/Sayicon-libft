@@ -1,6 +1,3 @@
-# libft
-
-# Özet
 Bu projede kendi kütüphanemizi yapıyoruz.
 
 # Proje Hakkında
