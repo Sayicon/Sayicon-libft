@@ -1,21 +1,29 @@
 #include "libft.h"
 
+/*
 char	ft_test(unsigned int i, char s)
 {
 	s += i;
 	return (s);
 }
+ */
+
+void	ft_test(unsigned int i, char *s)
+{
+	*s += i;
+}
 
 int main(void)
 {
-	/*
+	
 	//printf("%d\n",ft_isalpha('a'));
-	//char metin[] = "Kerem";
+	char metin[] = "Kerem";
 	//char metin2[] = "Hello, World!";
 	//printf("%s\n", metin);
 	//printf("%d\n", ft_strlen(metin));
 	//printf("%s\n", metin);
 	//ft_memset(metin, '+', 3);
+	//ft_bzero(metin + 2, 3);
 	//printf("%s\n", metin);
 	//ft_memcpy(metin, metin2, 2);
 	//printf("%s\n", metin);
@@ -24,7 +32,7 @@ int main(void)
 	//printf("%s\n", metin2);
 	//ft_strlcpy(metin2, metin, 6);
 	//printf("%s\n", metin2);
-	*/
+	
 	/*char metin3[20] = "Merhaba";
 	printf("%s\n", metin3);
 	ft_strlcat(metin3, " Ben Kerem", 20);
@@ -58,7 +66,11 @@ int main(void)
 	char	str[] = "Ola";
 	printf("%s\n",ft_strmapi(str, ft_test));
 	*/
-	
-	
+	/*
+	char	metin[] = "Abcd";
+	printf("%s\n", metin);
+	ft_striteri(metin,ft_test);
+	printf("%s\n", metin);
+	*/
 	return (0);
 }
