@@ -13,11 +13,12 @@ void	ft_test(unsigned int i, char *s)
 	*s += i;
 }
 
-int main(void)
-{
-	
+
+//int main(void)
+//{
+	/*
 	//printf("%d\n",ft_isalpha('a'));
-	char metin[] = "Kerem";
+	//char metin[] = "Kerem";
 	//char metin2[] = "Hello, World!";
 	//printf("%s\n", metin);
 	//printf("%d\n", ft_strlen(metin));
@@ -32,7 +33,7 @@ int main(void)
 	//printf("%s\n", metin2);
 	//ft_strlcpy(metin2, metin, 6);
 	//printf("%s\n", metin2);
-	
+	*/
 	/*char metin3[20] = "Merhaba";
 	printf("%s\n", metin3);
 	ft_strlcat(metin3, " Ben Kerem", 20);
@@ -72,5 +73,5 @@ int main(void)
 	ft_striteri(metin,ft_test);
 	printf("%s\n", metin);
 	*/
-	return (0);
-}
+	//return (0);
+//}
