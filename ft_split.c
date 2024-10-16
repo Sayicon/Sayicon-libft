@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mcekici <mcekici@student.42kocaeli.com.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/16 14:23:44 by mcekici           #+#    #+#             */
+/*   Updated: 2024/10/16 14:23:44 by mcekici          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static int sepcounter(char const *s, char sep)
+static int	sepcounter(char const *s, char sep)
 {
 	int	count;
 	int	i;
@@ -30,6 +42,7 @@ char	**ft_split(char const *s, char sep)
 {
 	char	**splited;
 	int		i;
+
 	if (!s || !*s)
 		return (NULL);
 	splited = (char **)malloc(sizeof(char *) * (sepcounter(s, sep) + 2));
