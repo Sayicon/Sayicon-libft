@@ -21,12 +21,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	if (start >= ft_strlen(s))
 		return (ft_strdup(""));
-	size = ft_strlen(s + start);
+	size = ft_strlen(s + start) + 1;
 	if (size < len)
 		len = size;
 	ptr = (char *)malloc(len);
 	if (!ptr)
 		return (NULL);
-	ft_strlcpy(ptr, s + start, len + 1);
+	ft_strlcpy(ptr, s + start, len);
 	return (ptr);
 }

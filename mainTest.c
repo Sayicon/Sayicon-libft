@@ -12,7 +12,12 @@
 
 #include "libft.h"
 
-int main(void)
+static char	test_func(unsigned int num, char c)
+{
+	return (c + (char)num);
+}
+
+int	main(void)
 {
 /*memset
 	char	dizi[] = "Merhaba";
@@ -47,6 +52,39 @@ int main(void)
 */
 /*strnstr
 	printf("%s\n", ft_strnstr("Merhaba ben kerem", "ben", sizeof("Merhaba ben kerem")));
+*/
+/*atoi	
+	printf("%d\n", ft_atoi("   \n24  asd"));
+	printf("%d\n", atoi("   \n24  sad"));
+*/
+/*strdup
+	printf("%s\n", ft_strdup("Merhaba"));
+*/
+/*substr
+	printf("%s\n", ft_substr("Merhaba Ben kerem", 7, 7));
+*/
+/*strjoin
+	printf("%s\n", ft_strjoin("Merhaba ben ", "  Kerem"));
+*/
+/*strtrim
+	printf("%s\n", ft_strtrim(",.  Hello World!,,.. ..,", ",. "));
+*/
+/*split
+	char **ptr = ft_split("Merhaba,42,Libft,Yapiyoruz", ',');
+	while (*ptr)
+	{
+		printf("%s\n", *ptr);
+		ptr++;
+	}
+*/
+/*itoa
+	printf("%s\n", ft_itoa(-234));
+	printf("%s\n", ft_itoa(235434));
+	printf("%s\n", ft_itoa(-2147483648));
+	printf("%s\n", ft_itoa(0));
+*/
+/*strmapi
+	printf("%s\n", ft_strmapi("abcdefg", test_func));
 */
 	return (0);
 }

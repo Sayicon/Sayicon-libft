@@ -55,10 +55,11 @@ char	**ft_split(char const *s, char sep)
 			s ++;
 		if (*s && *s != sep)
 		{
-			splited[i++] = ft_substr(s, 0, wordlen(s, sep));
+			splited[i] = ft_substr(s, 0, wordlen(s, sep) + 1);
 			s += wordlen(s, sep);
+			i ++;
 		}
 	}
-	splited[i] = NULL;
+	splited[i] = 0;
 	return (splited);
 }

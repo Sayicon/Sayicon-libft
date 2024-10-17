@@ -27,4 +27,16 @@ test: $(OBJS) $(BONUS_OBJS)
 	@gcc $(CFLAGS) $(OBJS) $(BONUS_OBJS) -o program
 	@echo Derleme Tamamlandı
 
-testre: fclean test
+.PHONY : all clean fclean re bonus test info
+
+info:
+	@echo
+	@echo "	make [info | all | bonus | clean | fclean | re | test]"
+	@echo
+	@echo "		info: displays informations"
+	@echo "		all: compile the library"
+	@echo "		bonus: compile the library with bonus"
+	@echo "		clean: remove object files"
+	@echo "		fclean: remove object files and archive library"
+	@echo "		re: fclean and all"
+	@echo "		test: create the test program"
