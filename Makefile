@@ -10,10 +10,10 @@ BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rc $(NAME) $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 
 bonus: $(OBJS) $(BONUS_OBJS)
-	ar rc $(NAME) $(BONUS_OBJS) $(OBJS)
+	ar rcs $(NAME) $(BONUS_OBJS) $(OBJS)
 
 clean:
 	rm -rf $(OBJS) $(BONUS_OBJS)
@@ -31,7 +31,7 @@ test: $(OBJS) $(BONUS_OBJS)
 
 info:
 	@echo
-	@echo "	make [info | all | bonus | clean | fclean | re | test]"
+	@echo "	 [info | all | bonus | clean | fclean | re | test]"
 	@echo
 	@echo "		info: displays informations"
 	@echo "		all: compile the library"
