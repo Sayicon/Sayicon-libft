@@ -1,7 +1,7 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = libft.a
-SRCS = $(filter-out %_bonus.c, $(wildcard *.c))
+SRCS = $(filter-out %_bonus.c main_test.c, $(wildcard *.c))
 BONUS_SRCS = $(wildcard *_bonus.c)
 
 OBJS = $(SRCS:.c=.o)
@@ -24,7 +24,7 @@ fclean: clean
 re: fclean all
 
 test: $(OBJS) $(BONUS_OBJS)
-	@gcc $(CFLAGS) $(OBJS) $(BONUS_OBJS) -o program
+	@$(CC) $(CFLAGS) $(OBJS) $(BONUS_OBJS) main_test.c -o program
 	@echo Derleme Tamamlandı
 
 .PHONY : all clean fclean re bonus test info

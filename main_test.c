@@ -9,9 +9,10 @@
 /*   Updated: 2024/10/18 19:04:01 by mcekici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+/*librarys
 #include "libft.h"
-//#include <fcntl.h>
+#include <fcntl.h>
+*/
 /*test_func1
 static char	test_func1(unsigned int num, char c)
 {
@@ -24,17 +25,43 @@ static void	test_func2(unsigned int num, char *c)
 	*c += num;
 }
 */
-/*del_func1
+/*test_func3
+static void test_func3(void *content)
+{
+	content = ft_strdup("42");
+}
+*/
+/*test_func4
+static void	*test_func4(void *content)
+{
+	if (!content)
+		return (0);
+	return (ft_strdup((char *)content));
+}
+*/
+/*del_func
 static void	del_test(void *content)
 {
 	free(content);
 }
 */
-
+/*lst_view
+static void	ft_lstview(t_list *iter)
+{
+	while (iter)
+	{
+		printf("%s->", (char *)iter->content);
+		iter = iter->next;
+	}
+	printf("NULL\n");
+}
+*/
+/*MAIN_FUNC
 int	main(void)
 {
 	return (0);
 }
+*/
 /*memset
 	char	dizi[] = "Merhaba";
 	printf("%s\n", (char *)ft_memset((void *)dizi, 'x', 2));
@@ -135,43 +162,58 @@ int	main(void)
 */
 /*lstadd_front
 	t_list	*head = ft_lstnew("Merhaba ben lst1");
-	t_list	*lst2 = ft_lstnew("Merhaba ben lst2");
-	t_list	*lst3 = ft_lstnew("Merhaba ben lst3");
-	ft_lstadd_front(&head, lst2);
-	ft_lstadd_front(&head, lst3);
-	while (head)
-	{
-		printf("%s\n", head->content);
-		head = head->next;
-	}
+	ft_lstadd_front(&head, ft_lstnew("Merhaba ben lst2"));
+	ft_lstadd_front(&head, ft_lstnew("Merhaba ben lst3"));
+	ft_lstview(head);
 */
 /*lstadd_back
-	t_list	*head = ft_lstnew("Merhaba ben lst1");
-	t_list	*lst2 = ft_lstnew("Merhaba ben lst2");
-	t_list	*lst3 = ft_lstnew("Merhaba ben lst3");
-	ft_lstadd_back(&head, lst2);
-	ft_lstadd_back(&head, lst3);
-	while (head)
-	{
-		printf("%s\n", head->content);
-		head = head->next;
-	}
+	t_list	*head = ft_lstnew("lst1");
+	ft_lstadd_back(&head, ft_lstnew("lst2"));
+	ft_lstadd_back(&head, ft_lstnew("lst3"));
+	ft_lstview(head);
 */
 /*lstlast
-	t_list	*head = ft_lstnew("Merhaba ben lst1");
-	t_list	lst2 = *ft_lstnew("Merhaba ben lst2");
-	t_list	lst3 = *ft_lstnew("Merhaba ben lst3");
-	ft_lstadd_back(&head, &lst2);
-	ft_lstadd_back(&head, &lst3);
-	printf("%s\n", ft_lstlast(head)->content);
+	t_list	*head = ft_lstnew("lst1");
+	head -> next = ft_lstnew("lst2");
+	head -> next -> next = ft_lstnew("lst3");
+	printf("List Last Member: %s\n", (char *)ft_lstlast(head)->content);
 */
 /*lstdelone
-	t_list	*head = ft_lstnew(ft_strdup("Merhaba ben lst1"));
-	t_list	*lst2 = ft_lstnew(ft_strdup("Merhaba ben lst2"));
-	t_list	*lst3 = ft_lstnew(ft_strdup("Merhaba ben lst3"));
-	ft_lstadd_back(&head, lst2);
-	ft_lstadd_back(&head, lst3);
-	printf("%s\n", (char *)head->content);
-	ft_lstdelone(head, del_test);
-	printf("%s\n", (char *)head->content);
+	t_list	*head = ft_lstnew(ft_strdup("lst1"));
+	ft_lstadd_back(&head, ft_lstnew(ft_strdup("lst2")));
+	ft_lstadd_back(&head, ft_lstnew(ft_strdup("lst3")));
+	ft_lstview(head);
+	t_list	*tmp = head->next->next;
+	head->next->next = 0;
+	ft_lstdelone(tmp, del_test);
+	ft_lstview(head);
+*/
+/*lstclear
+	t_list	*head = ft_lstnew(ft_strdup("lst1"));
+	ft_lstadd_back(&head, ft_lstnew(ft_strdup("lst2")));
+	ft_lstadd_back(&head, ft_lstnew(ft_strdup("lst3")));
+	ft_lstadd_back(&head, ft_lstnew(ft_strdup("lst4")));
+	ft_lstview(head);
+	ft_lstclear(&(head->next->next), del_test);
+	ft_lstview(head);
+*/
+/*lstiteri
+	t_list	*head = ft_lstnew(ft_strdup("lst1"));
+	ft_lstadd_back(&head, ft_lstnew(ft_strdup("lst2")));
+	ft_lstadd_back(&head, ft_lstnew(ft_strdup("lst3")));
+	ft_lstadd_back(&head, ft_lstnew(ft_strdup("lst4")));
+	ft_lstview(head);
+	ft_lstiter(head, test_func3);
+	ft_lstview(head);
+*/
+/*lstmap
+	t_list	*head = ft_lstnew(ft_strdup("lst1"));
+	ft_lstadd_back(&head, ft_lstnew(ft_strdup("lst2")));
+	ft_lstadd_back(&head, ft_lstnew(ft_strdup("lst3")));
+	ft_lstadd_back(&head, ft_lstnew(ft_strdup("lst4")));
+	ft_lstview(head);
+	printf("%p\n", head->next->next->content);
+	t_list	*ptr = ft_lstmap(head, test_func4, del_test);
+	ft_lstview(ptr);
+	printf("%p\n", ptr->next->next->content);
 */

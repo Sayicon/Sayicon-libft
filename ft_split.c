@@ -43,8 +43,8 @@ char	**ft_split(char const *s, char sep)
 	char	**splited;
 	int		i;
 
-	if (!s || !*s)
-		return (NULL);
+	if (!s)
+		return (0);
 	splited = (char **)malloc(sizeof(char *) * (sepcounter(s, sep) + 2));
 	if (!splited)
 		return (NULL);
@@ -55,7 +55,7 @@ char	**ft_split(char const *s, char sep)
 			s ++;
 		if (*s && *s != sep)
 		{
-			splited[i] = ft_substr(s, 0, wordlen(s, sep) + 1);
+			splited[i] = ft_substr(s, 0, wordlen(s, sep));
 			s += wordlen(s, sep);
 			i ++;
 		}
