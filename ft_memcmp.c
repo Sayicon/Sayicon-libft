@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stddef.h>
 
 int	ft_memcmp(void *dest, const void *src, size_t n)
 {
