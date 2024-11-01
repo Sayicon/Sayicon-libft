@@ -6,11 +6,12 @@
 /*   By: mcekici <mcekici@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 14:22:49 by mcekici           #+#    #+#             */
-/*   Updated: 2024/10/16 14:22:49 by mcekici          ###   ########.fr       */
+/*   Updated: 2024/11/01 17:49:17 by mcekici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 t_list	*ft_lstnew(void *content)
 {

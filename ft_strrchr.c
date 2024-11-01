@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
 char	*ft_strrchr(const char *s, int c)
 {
 	char	*ptr;
@@ -19,11 +17,11 @@ char	*ft_strrchr(const char *s, int c)
 	ptr = 0;
 	while (*s)
 	{
-		if (*s == (char)c)
+		if (*s == (unsigned char)c)
 			ptr = (char *)s;
 		s ++;
 	}
-	if (c == *s)
+	if ((unsigned char)c == *s)
 		return ((char *)s);
 	return (ptr);
 }

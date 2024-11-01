@@ -11,8 +11,9 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-static int	sepcounter(char const *s, char sep)
+static int	wordcounter(char const *s, char sep)
 {
 	int	count;
 	int	i;
@@ -21,9 +22,12 @@ static int	sepcounter(char const *s, char sep)
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] == sep)
+		while (s[i] == sep)
+			i ++;
+		if (s[i] && s[i] != sep)
 			count ++;
-		i ++;
+		while (s[i] && s[i] != sep)
+			i ++;
 	}
 	return (count);
 }
@@ -38,6 +42,14 @@ static int	wordlen(char const *s, char sep)
 	return (len);
 }
 
+static int	ft_free(char **ptr, int i)
+{
+	while (i > 0)
+		free(ptr[--i]);
+	free(ptr);
+	return (0);
+}
+
 char	**ft_split(char const *s, char sep)
 {
 	char	**splited;
@@ -45,7 +57,7 @@ char	**ft_split(char const *s, char sep)
 
 	if (!s)
 		return (0);
-	splited = (char **)malloc(sizeof(char *) * (sepcounter(s, sep) + 2));
+	splited = (char **)malloc(sizeof(char *) * (wordcounter(s, sep) + 1));
 	if (!splited)
 		return (NULL);
 	i = 0;
@@ -56,6 +68,9 @@ char	**ft_split(char const *s, char sep)
 		if (*s && *s != sep)
 		{
 			splited[i] = ft_substr(s, 0, wordlen(s, sep));
+			if (!(splited[i]))
+				if (!ft_free(splited, i))
+					return (0);
 			s += wordlen(s, sep);
 			i ++;
 		}

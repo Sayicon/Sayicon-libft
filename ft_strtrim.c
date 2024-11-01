@@ -22,10 +22,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!set)
 		return (ft_strdup(s1));
 	startind = 0;
-	while (s1[startind] && strchr(set, s1[startind]))
+	while (s1[startind] && ft_strchr(set, s1[startind]))
 		startind ++;
 	endind = ft_strlen(s1) - 1;
-	while (s1[endind] && strchr(set, s1[endind]))
+	while (s1[endind] && ft_strchr(set, s1[endind]))
 		endind --;
 	return (ft_substr(s1, startind, endind - startind + 1));
 }
